@@ -9,6 +9,7 @@ window.addEventListener("load", function () {
             
             let div = document.getElementById("container");
             let astronaut = astronautsData[i];
+            let activeClass = astronaut.active ? "active" : "";
             
             div.innerHTML += `
                 <div class="astronaut">
@@ -16,7 +17,7 @@ window.addEventListener("load", function () {
                     <h3>${astronaut.firstName} ${astronaut.lastName}</h3>
                    <ui>
                     <li>Hours in space: ${astronaut.hoursInSpace}</li>
-                    <li>Active: ${astronaut.active}</li>
+                    <li class=${activeClass}>Active: ${astronaut.active}</li>
                     <li>Skills: ${astronaut.skills}</li>
                 </ui>
             </div>
