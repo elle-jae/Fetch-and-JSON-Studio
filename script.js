@@ -4,12 +4,17 @@ window.addEventListener("load", function () {
         response.json().then(function(astronautsData) {
             
             astronautsData.sort((a,b) => b.hoursInSpace - a.hoursInSpace);
-            for (let i = 0; i < astronautsData.length; i++) {
+           
+            const counter = document.getElementById("count");
+            counter.innerHTML = `Number of Astronauts: ${astronautsData.length}`;          
+
+        for (let i = 0; i < astronautsData.length; i++) {
                 
             
             let div = document.getElementById("container");
             let astronaut = astronautsData[i];
             let activeClass = astronaut.active ? "active" : "";
+            let astronautCounter = astronautsData.length;
             
             div.innerHTML += `
                 <div class="astronaut">
@@ -23,7 +28,6 @@ window.addEventListener("load", function () {
             </div>
             <img class ="avatar" src="${astronaut.picture}">
             </div>
-
                     `;
             }
         });
